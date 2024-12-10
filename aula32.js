@@ -1,3 +1,6 @@
+//não são específicos para um elemento
+//mais genérico
+//queryselector
 //get element by classname
 //pega os elementos pelas classes.
 const cursosTodos = [...document.getElementsByClassName("curso")]
