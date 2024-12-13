@@ -24,7 +24,7 @@ function aluno (nome,nota){
 const al1=new aluno('Bruno',100)
 const al2=new aluno('Breno',200)
 aluno('Bruno',1000)
-al1.dados_anonimo()
+al1.dados_anonimo("breno")
 al1.dados_arrow()
 //funções podem ser tratadas como objetos.
 
