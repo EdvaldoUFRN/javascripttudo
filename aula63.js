@@ -18,7 +18,7 @@ class Carro {
     desligar = function () {
         this.ligado = false
     }
-    setCor = function () {
+    setCor = function (cor) {
         this.cor = cor
     }
 }
@@ -33,6 +33,7 @@ class Militar extends Carro {//classe filho
         //usar o super.
         this.blindagem = blindagem
         this.municao = municao
+        this.setCor("Verde") //aqui eu estou definindo que todos os carros militares serão verdes.
     }
     atirar = function () {
         if (this.municao > 0) {
@@ -40,3 +41,10 @@ class Militar extends Carro {//classe filho
         }
     }
 }
+
+class Utilitario extends Carro{
+    //aí eu vou fazendo as mesmas coisas igual o militares.
+}
+const c2 = new Militar("Lutador",1,100,50)
+c2.setCor("Azul")
+console.log(c2)
