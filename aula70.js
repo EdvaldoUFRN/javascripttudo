@@ -3,7 +3,7 @@ const teclasNum = [...document.querySelectorAll(".num")]
 const teclasOp = [...document.querySelectorAll(".op")]
 const teclaRes = document.querySelector(".res")
 const display = document.querySelector(".display")
-const ton = document.getElementById("ton")
+const tcpy = document.getElementById("tcpy")
 const tlimpar = document.getElementById("tlimpar")
 const tigual = document.getElementById("tigual")
 let controle = 0
@@ -78,8 +78,28 @@ tigual.addEventListener("click", (evt) => {
     sinal = false
     virgula = false
     controle = 0
-    
-    const res = eval(display.innerHTML.replaceAll(',','.'))
-    const valor=res.toString()
-    display.innerHTML = valor.replaceAll('.',',')
+
+    const res = eval(display.innerHTML.replaceAll(',', '.'))
+    const valor = res.toString()
+    display.innerHTML = valor.replaceAll('.', ',')
 })
+
+//como jogar algo pra area de transferencia e trazer algo de lá
+//propriedade clipboard é a área de transferencia
+tcpy.addEventListener("click", (evt) => {
+    navigator.clipboard.writeText(display.innerHTML) //tipo ele vai basicamente dar um ctrl c do resultado do display. quando eu der ctrl v vai sair o resultado.
+    //copiar algo e mandar pra area de transferencia
+    //write e write text copiar e mandar.
+    //read e readtext se eu quiser colar.
+    //se tiver em um input.
+    //pode dar problema em mobile, então teremos que dar um select antes, tipo:
+    //teste.select()
+    //basta só ele não, é bom colocar até 
+    //teste.setSelectionRange(0,99999)//mobile
+    //navigator.clipboard.writeText(teste.value)
+
+})
+
+//como fazer um elemento retratil
+//quando eu quero sumir com ele e depois mostrar ele.
+//colocaremos uma aba pra poder abrir ou fechar a calculadora.

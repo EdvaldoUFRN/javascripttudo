@@ -5,8 +5,14 @@
     box-sizing: border-box;
     font-size: large;
 }
+.calc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
 
-.calc {
+.calc_principal {
     display: flex;
     justify-content: center;
     align-items: center;
