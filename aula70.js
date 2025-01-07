@@ -6,6 +6,8 @@ const display = document.querySelector(".display")
 const tcpy = document.getElementById("tcpy")
 const tlimpar = document.getElementById("tlimpar")
 const tigual = document.getElementById("tigual")
+const calc_aba = document.getElementById("calc_aba")
+const calc = document.getElementById("calc")
 let controle = 0
 let sinal = false
 let virgula = false
@@ -103,3 +105,15 @@ tcpy.addEventListener("click", (evt) => {
 //como fazer um elemento retratil
 //quando eu quero sumir com ele e depois mostrar ele.
 //colocaremos uma aba pra poder abrir ou fechar a calculadora.
+
+calc_aba.addEventListener("click", (evt) => {
+    calc.classList.toggle("calc_exibir")
+    if (calc.classList.contains("calc_exibir")) {
+        evt.target.setAttribute("src", "seta_esquerda.svg")
+    } else {
+
+        evt.target.setAttribute("src", "seta_direita.svg")
+    }
+})
+//posso utilizar fonts google para pegar icons do google.
+//assim eu poderia usar. posso baixar svg etc.
