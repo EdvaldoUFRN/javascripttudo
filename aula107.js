@@ -51,3 +51,7 @@ window.onload = init
 window.addEventListener("resize", () => {
     tamMax = window.innerWidth - parseInt(carro.style.width)
 })
+
+//animação nessas aulas ficou sendo tipo o fato de utilizar o 
+//timeout.
+///setar um intervalo.
