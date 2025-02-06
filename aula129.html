@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 129 de javascript</title>
     <link rel="stylesheet" href="estilos129.css">
 </head>
+
 <body>
-    <p id="timer">00:00:00</p>
+    <div id="main" class="main">
+
+        <div id="divTimer">
+            <p id="timer">00:00:00</p>
+            <div id="botoes">
+                <button id="btn_iniciar">Iniciar</button>
+                <button id="btn_parcial">Parcial</button>
+                <button id="btn_parar">Parar</button>
+                <button id="btn_zerar">Zerar</button>
+            </div>
+        </div>
+        <div id="parciais" class="parciais">
+            <h2>Parciais</h2>
+            <div id="parciaisregistradas" class="parciaisregistradas">
+
+            </div>
+        </div>
+    </div>
     <script src="aula129.js"></script>
 </body>
+
 </html>
