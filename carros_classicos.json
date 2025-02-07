@@ -1,0 +1,30 @@
+[
+    {
+        "nome":"Carro 1",
+        "desc":"Descrição do carro 1"
+    },
+    {
+        "nome":"Carro 2",
+        "desc":"Descrição do carro 2"
+    },
+    {
+        "nome":"Carro 3",
+        "desc":"Descrição do carro 3"
+    },
+    {
+        "nome":"Carro 4",
+        "desc":"Descrição do carro 4"
+    },
+    {
+        "nome":"Carro 5",
+        "desc":"Descrição do carro 5"
+    },
+    {
+        "nome":"Carro 6",
+        "desc":"Descrição do carro 6"
+    },
+    {
+        "nome":"Carro 7",
+        "desc":"Descrição do carro 7"
+    }
+]
