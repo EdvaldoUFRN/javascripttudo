@@ -18,7 +18,7 @@ var callback = (req, res) => {
     var parts = url.parse(req.url);
     //verificar a rota
     if (parts.path == '/') {
-        res.end("Site na raiz.");
+        res.end("Site na raiz teste com o nodemon.");
     } else if (parts.path == '/carros/classicos') {
         //Retorna o JSON dos carros clássicos
         readFile(res, "carros_classicos.json");
