@@ -20,3 +20,4 @@ connection.query(sql, [json, id], function (error, results, fields) {
     console.log("Carro atualizado com sucesso!");
     console.log("Qtde de registros atualizados: " + results.affectedRows);
 })
+connection.end();
