@@ -14,6 +14,17 @@ function getCarros(response, tipo) {
 
     });
 }
+
+//SALVAR UM CARRO
+function salvarCarro(response, carro) {
+    CarroDB.save(carro, function (carro) {
+        console.log("Carro salvo com sucesso: " + carro.id);
+        //converto o carro salvo para json
+        var json = JSON.stringify(carro);
+        //envia o json como resposta
+        response.end(json);
+    });
+}
 //função de callback para o servidor HTTP
 function callback(request, response) {
     //faz o parser da url separando o caminho (path)
@@ -39,13 +50,16 @@ function callback(request, response) {
         var body = '';
         request.on('data', function (data) {
             //concatena os dados recebidos na variável body
+            console.log("Aqui é a data" + data);
             body += data;
         });
         request.on('end', function () {
             //imprime o corpo body da requisição
             console.log("POST Body é isso que o cliente vai enviar para a gente: " + body);
-            //responde sem redefinir os headers
-            response.end("POST é isso que mandamos para o cliente: " + body);
+            //converte o json recebido para objeto
+            let carro = JSON.parse(body);
+            //faz a soma e retorna os dados
+            salvarCarro(response, carro);
         });
         return;
     }
