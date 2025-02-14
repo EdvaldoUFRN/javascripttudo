@@ -53,6 +53,7 @@ class CarroDB {
             if (error) throw error;
             if (results.length == 0) {
                 console.log("Nenhum carro encontrado.")
+                callback(undefined);
                 return;
             }
             //Encontrou o carro
