@@ -18,20 +18,27 @@ class CarroDB {
         return connection; //agora eu posso colocar o retorno dessa função para qualquer variável que eu quiser q represente uma conexão.
 
     }
+
     //retorna a lista de carros
     static getCarros(callback) {
         let connection = CarroDB.connect();
         //cria uma consulta
-        let sql = "select * from carro";
+        let sql = "select * from carroXXX";
         let query = connection.query(sql, function (error, results, fields) {
-            if (error) throw error;
+            if (error) {
+                callback(error, null); //erro
+                return;
+            }
             //retorna os dados pela função de callback
-            callback(results)
+            callback(null, results); //isso daqui é uma padronização, o primeiro parâmetro é sempre o error e o segundo é os resultados.
+
+
         });
         console.log(query.sql); //AQUI É A SAIDA DO QUERY SQL
         console.log("AQUI EM CIMA É A SAÍDA DO QUERY.SQL");
         connection.end();
     }
+
     //Retorna a lista de carros por tipo do banco de dados.
     static getCarrosByTipo(tipo, callback) {
         let connection = CarroDB.connect();
@@ -45,6 +52,7 @@ class CarroDB {
         console.log(query.sql);
         connection.end();
     }
+
     //retorna a lista de carros
     static getCarroById(id, callback) {
         let connection = CarroDB.connect();
@@ -63,6 +71,7 @@ class CarroDB {
         console.log(query.sql);
         connection.end();
     }
+
     //salva um carro no banco de dados
     //recebe o JSON com dados do carro como parâmetro
     static save(carro, callback) {
@@ -78,6 +87,7 @@ class CarroDB {
         console.log(query.sql);
         connection.end();
     }
+
     //atualiza um carro no banco de dados
     static update(carro, callback) {
         let connection = CarroDB.connect();
@@ -91,6 +101,7 @@ class CarroDB {
         console.log(query.sql);
         connection.end();
     }
+
     //deleta um carro pelo id
     static deleteById(id, callback) {
         let connection = CarroDB.connect();

@@ -2,10 +2,14 @@ let express = require('express');
 const router = express.Router();
 const CarroDB = require('../model/CarroDB');
 //GET em /carros
-router.get('/', function (req, res) {
-    CarroDB.getCarros(function (carros) {
+router.get('/', function (req, res, next) {
+    CarroDB.getCarros(function (error, carros) {
+        if (error) {
+            console.log("Erro de SQL: " + error.message);
+            return next(error);
+        }
         res.json(carros);
-    })
+    });
 });
 //GET em /carros/id
 router.get('/:id(\\d+)', function (req, res) {
@@ -15,7 +19,7 @@ router.get('/:id(\\d+)', function (req, res) {
 
             res.json(carro);
         } else {
-            res.json({ error: 'Nenhum carro foi encontrado!' });
+            res.json({error: 'Nenhum carro foi encontrado!'});
         }
     });
 });
@@ -24,7 +28,7 @@ router.delete('/:id(\\d+)', function (req, res) {
     let id = req.params.id;
     console.log("deletar carro " + id);
     CarroDB.deleteById(id, function (affectedRows) {
-        res.json({ msg: 'Carro deletado com sucesso.' });
+        res.json({msg: 'Carro deletado com sucesso.'});
     });
 });
 //GET em /carros/esportivos
@@ -45,7 +49,7 @@ router.put('/', function (req, res) {
     //carro enviado no formato json
     let carro = req.body;
     CarroDB.update(carro, function (carro) {
-        res.json({ msg: 'Carro atualizado com sucesso.' })
+        res.json({msg: 'Carro atualizado com sucesso.'})
     });
 });
 
